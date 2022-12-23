@@ -1,5 +1,6 @@
 $(() => {
     const amenityDict = {};
+    $(':checkbox').css('margin-right', '10px');
     $(':checkbox').change(function () {
       if (this.checked) {
         amenityDict[$(this).data('id')] = $(this).data('name');
