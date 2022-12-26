@@ -12,6 +12,7 @@ header .logo {
     left: 20px;
     height: 100%;
     min-width: 150px;
+    border-radius: 0%;
 }
 
 header .available {

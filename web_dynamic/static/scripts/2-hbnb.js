@@ -1,17 +1,16 @@
 $(() => {
-    const amenidict = {};
-    $(':checkbox').css('margin-right', '10px');
-    $(':checkbox').change(() => {
-      if (this.checked) {
-        amenidict[$(this).data('id')] = $(this).data('name');
-      } else {
-        delete amenidict[$(this).data('id')];
-      }
-      if ($.isEmptyObject(amenidict)) {
-        $('.amenities h4').html('&nbsp');
-      } else {
-        $('.amenities h4').text(Object.values(amenidict).join(', '));
-      }
+    const amenityDict = {};
+    $(':checkbox').change(function() {
+        if (this.checked) {
+            amenityDict[$(this).data('id')] = $(this).data('name');
+        } else {
+            delete amenityDict[$(this).data('id')];
+        }
+        if ($.isEmptyObject(amenityDict)) {
+            $('.amenities h4').html('&nbsp');
+        } else {
+            $('.amenities h4').text(Object.values(amenityDict).join(', '));
+        }
     });
 
     $.get('http://0.0.0.0:5002/api/v1/status/', (data) => {
@@ -21,4 +20,9 @@ $(() => {
             $('div#api_status').removeClass('available');
         }
     });
+  });
+$(() => {
+  $(":button").click(function() {
+    alert('It works');
+  }); 
 });
